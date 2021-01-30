@@ -85,6 +85,9 @@ case: BUY_CAKE : return {
 * but whta the thunk middleware brings to the table is the ability to return the function instead og action object
 * What is special about this function is that it doesnot have to be pure so it is allowed to have side effect like async API call and
  this function can dispatch action because it receieve dispatch method as argument 
+ 
+ ![MicrosoftTeams-image](https://user-images.githubusercontent.com/56108097/106365018-c6e37780-6358-11eb-99ab-a57bb55b8823.png)
+
 
 
   
