@@ -1,4 +1,5 @@
 # ReactJS
+* Reference:https://github.com/gopinav/React-Redux-Tutorials | https://www.youtube.com/watch?v=9boMnm5X9ak&list=PLC3y8-rFHvwheJHvseC3I0HuYI2f46oAK
 ## Redux
 * Redux is preditable state container for Javascript Application 
 * Store:store holds the state of your Application
