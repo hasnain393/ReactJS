@@ -57,6 +57,12 @@ case: BUY_CAKE : return {
   
 ![REDUX](https://user-images.githubusercontent.com/56108097/106353193-c7572080-630e-11eb-9b8f-32fc4e89afa7.jpeg)
 
+* This is a simple React Application ,the state of the application is maintained separately in the **redux store**
+* Our Application is always subsribed to this redux store however ,the **Application cannot directly update the state**
+* if the Application wants to  update the state **it has to emit|dispatch an action**
+* Once **the action has been dispatch the reducer then handles the action** and updates the current state
+* As soon as the state is updated the value is then passed on to the application because the Application is subscribed to the store
+
 # Middleware
 *  is the suggested way to extend Redux with custom functionality
 * Provides a third-party extension point between dispatching an action and the moment it reaches the reducer
