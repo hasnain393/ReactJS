@@ -25,7 +25,7 @@ function buyCake(){
   }  
 ```
     
-* Action is a simple object that has must have type property it can have more properties has well but type property is must
+* Action is a simple object that has must have **type** property it can have more properties as well but type property is must
 * Action is and Object describing what happened
 
 * Reducer:which actually carries out the state transition depending on the action
