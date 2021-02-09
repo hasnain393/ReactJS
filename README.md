@@ -9,7 +9,8 @@ numOfCake:10
 }
 ```
 * Action:that describes the changes in the state of the Application 
-```{
+```
+{
     type:BUY_CAKE,
     info:'First Redux Action'
     }
