@@ -99,7 +99,18 @@ case: BUY_CAKE : return {
  
  ![IMG_20210209_202959](https://user-images.githubusercontent.com/56108097/107382439-e0817d80-6b15-11eb-9a78-7a0389460ffb.jpg)
 
+* To add new element into array of object dont use **push** as it mutate/change an original array
 
+```
+state.push(action.expense)
+```
+
+* either use **concat** or **spread** operator
+* state.concat(action.expense) -> returns new array
+```
+state.concat(action.expense)
+return [...state,action.expense]
+```
 
 
 
