@@ -78,6 +78,18 @@ case: BUY_CAKE : return {
  
  const store= createStore(rootReducer,applyMiddlewware(Logger))
  ```
+ 
+ ```
+ const axios= require('axios')
+const redux = require('redux')
+const createStore =redux.createStore
+const thunkMiddleware=require('redux-thunk').default
+const applyMiddleware=redux.applyMiddleware
+
+
+const store=createStore(reducer,applyMiddleware(thunkMiddleware));
+```
+
 ## Async Action 
 
 * Asyn action :Asynchronous API call to fetch data from an end point and use that data in our Application
@@ -112,11 +124,92 @@ state.concat(action.expense)
 return [...state,action.expense]
 ```
 
+## Redux-combineReducers 
+* combineReducers allows us to have multiple Reducer
+```
+const combineReducers =redux.combineReducers
+const rootReducer=combineReducers({
+    cake:CakeReducer,
+    icecream:iceCreamReducer
+})
+```
+* Example of  Redux CombineReducers
+```
+const  redux =require('redux')
+const  creatStore=redux.createStore
+const combineReducers =redux.combineReducers
+
+const CakeReducer=(state=initialCakeState,action)=>{
+    switch (action.type) {
+        case BUY_CAKE:
+
+            return {
+                ...state,
+                numofcake:state.numofcake-1
+            }
+    
+        default:
+            return state
+    }
+}
+
+const iceCreamReducer=(state=initialiceCreamState,action)=>{
+    switch (action.type) {
+        case BUY_ICECREAM:
+
+            return {
+                ...state,
+                numoficeCream:state.numoficeCream-1
+            }
+    
+        default:
+            return state
+    }
+}
+
+const rootReducer=combineReducers({
+    cake:CakeReducer,
+    icecream:iceCreamReducer
+})
+
+const store=creatStore(rootReducer)
+```
+
+* Summary
+
+* In **reactJs** to make Asynchronous API call to fetch data from an end point and use that data in our Application  we use Axios or fetch in ComponentDidMount()
+* In **Redux**   to make Asynchronous API call to fetch data from an end point and use that data in our Application we take the help of Middleware , redux-thunk and axios and then dispatch the action
+
+```
+const axios= require('axios')
+const redux = require('redux')
+const thunkMiddleware=require('redux-thunk').default
+const applyMiddleware=redux.applyMiddleware
+const createStore =redux.createStore
 
 
+const fetchUsers=()=>{
+    return function(dispatch){
+      
+        dispatch(fetchUsersRequest())
+        axios.get("https://jsonplaceholder.typicode.com/users")
+        .then((response)=>{
+           // console.log(response.data);
+            const users=response.data.map((user)=>{
+                return  user.name}
+            )
+            dispatch(fetchUsersSuccess(users))
+        })
+        .catch((error)=>{
+            //console.log(error);
+            dispatch(fetchUsersFailure(error.message))
+        })
+    }
+}
+const store=createStore(reducer,applyMiddleware(thunkMiddleware));
+store.dispatch(fetchUsers());
 
-
-
+```
   
   
      
