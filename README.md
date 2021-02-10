@@ -187,11 +187,12 @@ const thunkMiddleware=require('redux-thunk').default
 const applyMiddleware=redux.applyMiddleware
 const createStore =redux.createStore
 
-
+//step 3
 const fetchUsers=()=>{
     return function(dispatch){
-      
+      //step 4  dispatch action & step 5  reducer is called
         dispatch(fetchUsersRequest())
+        //step 6 
         axios.get("https://jsonplaceholder.typicode.com/users")
         .then((response)=>{
            // console.log(response.data);
@@ -206,7 +207,10 @@ const fetchUsers=()=>{
         })
     }
 }
+//step 1
 const store=createStore(reducer,applyMiddleware(thunkMiddleware));
+
+//step 2
 store.dispatch(fetchUsers());
 
 ```
